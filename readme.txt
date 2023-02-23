@@ -69,3 +69,46 @@ command: npm install mongoose cors express nodemon
 }
 
 6.) Creation of server file tilted "index.js" inside of server.
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+
+mongoose.set('strictQuery', true);
+
+//set up middle ware
+app.use(express.json());
+const cors = require("cors");
+
+app.use(cors());
+
+//establish communication to MongoDB atlas (database)
+
+mongoose.connect("mongodb+srv://bamaboi912:Student1234!@cluster0.lpofvla.mongodb.net/ExoticDealership?retryWrites=true&w=majority").then(() => 
+console.log("Connected to Database")).then(() =>{
+    app.listen(3001)
+}).catch((err) => console.log(err));
+const mongoose = require('mongoose');
+//create schema to hold structuring of content
+const Schema = mongoose.Schema;
+
+const carSchema = new Schema({
+    make_model:{
+        type: String,
+        required: true,
+    },
+    price:{
+        type:Number,
+        required:true,
+    },
+    year:{
+        type:Number,
+        required: true,
+    },
+    engine:{
+        type:String,
+        required:true,
+    }
+});
+
+//export schema to be used in other files
+module.exports = mongoose.model("VehicleInformation", carSchema);
