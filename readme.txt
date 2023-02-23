@@ -45,4 +45,27 @@ cors = Cross-origin resource sharing is a mechanism that allows restricted resou
 
 command: npm install mongoose cors express nodemon
 
-    
+5.) Amend package.json to assign nodemon to server file:
+
+*amended package.json content: 
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js" <<<<----------- modify to this value
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.4",
+    "nodemon": "^2.0.20"
+  }
+}
+
+6.) Creation of server file tilted "index.js" inside of server.
